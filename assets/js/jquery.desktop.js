@@ -59,13 +59,6 @@ var JQD = (function($, window, document, undefined) {
           }
         });
 
-        // Cancel single-click.
-        d.on('mousedown', 'a.icon', function() {
-          // Highlight the icon.
-          JQD.util.clear_active();
-          $(this).addClass('active');
-        });
-
         // Respond to click.
         d.on('click', 'a.icon', function() {
           // Get the link's target.
