@@ -66,8 +66,8 @@ var JQD = (function($, window, document, undefined) {
           $(this).addClass('active');
         });
 
-        // Respond to double-click.
-        d.on('dblclick', 'a.icon', function() {
+        // Respond to click.
+        d.on('click', 'a.icon', function() {
           // Get the link's target.
           var x = $(this).attr('href');
           var y = $(x).find('a').attr('href');
@@ -77,8 +77,8 @@ var JQD = (function($, window, document, undefined) {
           $(y).addClass('window_stack').show();
         });
 
-        // Respond to double-click inside window.
-        d.on('dblclick', 'a.iconex', function() {
+        // Respond to click inside window.
+        d.on('click', 'a.iconex', function() {
           // Get the link's target.
           var x = $(this).attr('href');
           var y = $(x).find('a').attr('href');
