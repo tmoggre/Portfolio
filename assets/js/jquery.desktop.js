@@ -152,7 +152,6 @@ var JQD = (function($, window, document, undefined) {
           $($(this).attr('href')).hide('fast');
         });
 
-        
         // Close the window clippy.
         d.on('click', 'a.window_closex', function() {
           $(this).closest('div.windowx').hide();
