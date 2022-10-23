@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Oswald:wght@400;500&family=Roboto&display=swap');
+
+body, html {
+  background: white;
+}
+
+.top_bar{
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  font-family: 'Mukata', sans-serif;
+  font-weight: 600;
+  padding-bottom: 165px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33%;
+  padding: 10px;
+}
+
+.column h1 {
+  font-size: 24px;
+}
+
+.column h2 {
+  font-size: 24px;
+  position: relative;
+  bottom: 4px;
+  left: 15%;
+}
+
+.search {
+  position: relative;
+  white-space: nowrap;
+  float: right;
+}
+
+.search input {
+  border: 2px solid black;
+  font-size: 24px;
+  font-family: 'Mukata', sans-serif;
+  font-weight: 600;
+  color: black;
+}
+
+.search button {
+  position: relative;
+  right: 45px;
+  font-size: 24px;
+  background: none;
+  border: none;
+}
+
+.search button:hover {
+  cursor: pointer;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  display: table;
+  clear: both;
+}
+
