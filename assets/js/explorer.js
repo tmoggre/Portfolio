@@ -104,6 +104,21 @@ function showgames() {
   }
 }
 
+function showcoding() {
+  var one = document.getElementById("root");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var two = document.getElementById("codingfolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
 function showfashion() {
   var one = document.getElementById("root");
   if (one.style.visibility === "visible") {
@@ -119,14 +134,14 @@ function showfashion() {
   }
 }
 
-function showdiscovery() {
-  var one = document.getElementById("videosfolder");
+function showwebsitesfolder() {
+  var one = document.getElementById("codingfolder");
   if (one.style.visibility === "visible") {
     one.style.visibility = "hidden";
   } else {
     one.style.visibility = "hidden";
   }
-  var two = document.getElementById("discoveryfolder");
+  var two = document.getElementById("websitesfolder");
   if (two.style.visibility === "hidden") {
     two.style.visibility = "visible";
   } else {
@@ -178,6 +193,12 @@ function back() {
     } else {
       one.style.visibility = "hidden";
     }
+    var one = document.getElementById("codingfolder");
+    if (one.style.visibility === "visible") {
+      one.style.visibility = "hidden";
+    } else {
+      one.style.visibility = "hidden";
+    }
     var one = document.getElementById("fashionfolder");
     if (one.style.visibility === "visible") {
       one.style.visibility = "hidden";
@@ -193,17 +214,144 @@ function back() {
 }
 
 function backtwo() {
-  var one = document.getElementById("videosfolder");
-  if (one.style.visibility === "hidden") {
-    one.style.visibility = "visible";
-  } else {
-    one.style.visibility = "visible";
-  }
-  var one = document.getElementById("discoveryfolder");
+  var one = document.getElementById("websitesfolder");
   if (one.style.visibility === "visible") {
     one.style.visibility = "hidden";
   } else {
     one.style.visibility = "hidden";
+  }
+
+  var two = document.getElementById("codingfolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
+//Hide the first page (the root folder)
+function showpwbnva() {
+  var one = document.getElementById("pwbnroot");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var two = document.getElementById("pwbnvafolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
+function showpwbngaming() {
+  var one = document.getElementById("pwbnroot");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var two = document.getElementById("pwbngamingfolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
+function showpwbnmusic() {
+var one = document.getElementById("pwbnroot");
+if (one.style.visibility === "visible") {
+  one.style.visibility = "hidden";
+} else {
+  one.style.visibility = "hidden";
+}
+var two = document.getElementById("pwbnmusicfolder");
+if (two.style.visibility === "hidden") {
+  two.style.visibility = "visible";
+} else {
+  two.style.visibility = "visible";
+}
+}
+
+function showpwbnlifestyle() {
+var one = document.getElementById("pwbnroot");
+if (one.style.visibility === "visible") {
+  one.style.visibility = "hidden";
+} else {
+  one.style.visibility = "hidden";
+}
+var two = document.getElementById("pwbnlifestylefolder");
+if (two.style.visibility === "hidden") {
+  two.style.visibility = "visible";
+} else {
+  two.style.visibility = "visible";
+}
+}
+
+function showpwbnfilm() {
+  var one = document.getElementById("pwbnvafolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var two = document.getElementById("pwbnfilmfolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
+//back button pwbn
+function pwbnback() {
+  var one = document.getElementById("pwbnvafolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var one = document.getElementById("pwbngamingfolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var one = document.getElementById("pwbnmusicfolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var one = document.getElementById("pwbnlifestylefolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+  var two = document.getElementById("pwbnroot");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
+  }
+}
+
+function pwbnbacktwo() {
+  var one = document.getElementById("pwbnfilmfolder");
+  if (one.style.visibility === "visible") {
+    one.style.visibility = "hidden";
+  } else {
+    one.style.visibility = "hidden";
+  }
+
+  var two = document.getElementById("pwbnvafolder");
+  if (two.style.visibility === "hidden") {
+    two.style.visibility = "visible";
+  } else {
+    two.style.visibility = "visible";
   }
 }
 

@@ -114,13 +114,6 @@ var JQD = (function($, window, document, undefined) {
           $(this).addClass('window_stack');
         });
 
-        // Focus active window clippy
-        d.on('mousedown', 'window_social', function() {
-          // Bring window to front.
-          JQD.util.window_flat();
-          $(this).addClass('window_stack');
-        });
-
         // Make windows draggable.
         d.on('mouseenter', 'div.window', function() {
           $(this).off('mouseenter').draggable({
@@ -149,12 +142,6 @@ var JQD = (function($, window, document, undefined) {
         // Close the window.
         d.on('click', 'a.window_close', function() {
           $(this).closest('div.window').hide();
-          $($(this).attr('href')).hide('fast');
-        });
-
-        // Close the window clippy.
-        d.on('click', 'a.window_closex', function() {
-          $(this).closest('div.windowx').hide();
           $($(this).attr('href')).hide('fast');
         });
 
