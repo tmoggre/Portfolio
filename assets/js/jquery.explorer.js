@@ -107,7 +107,6 @@ function highlightSelectedFolder() {
   });
 }
 
-// ✅ THE FIXED FUNCTION: only close branches not in current path
 function expandFolderTreeToCurrentPath() {
   const pathSegments = [];
   const openPaths = [];
@@ -170,7 +169,7 @@ function renderFolderTree(node, parentElement, path) {
         .on("click", (e) => {
           e.stopPropagation();
           alert(`You selected the file: ${item.name}`);
-          currentPath = [...path, item];
+          currentPath = [...path];
           updateView();
         });
       folderTree.append(listItem);

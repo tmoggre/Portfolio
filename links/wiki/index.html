@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>UNIVERSE.SYS</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <body>
+
+<div class="topbar">
+  <div class="left">
+    <button id="backBtn" class="is-disabled" onclick="goBack()" aria-label="back to previous page">◀ BACK</button>
+    <div class="crumb" aria-live="polite">
+      <a href="#" onclick="nav('home')">UNIVERSE.SYS</a>
+      <span>›</span>
+      <a id="crumbCurrent" href="#" onclick="nav('home')">INDEX</a>
+    </div>
+  </div>
+  <button id="menuBtn" class="menu-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu()">MENU ▾</button>
+</div>
+<div class="rule-top"></div>
+
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-panel-inner">
+    <h3>▣ ALL PAGES</h3>
+    <ul>
+      <li><a href="#" onclick="return nav('home')">Home / Index</a></li>
+      <li><a href="#" onclick="return nav('vcr')">VCR On‑Screen Displays</a> <span class="badge">★</span></li>
+      <li><a href="#" onclick="return nav('disk')">DOS Disk Recovery Tools</a></li>
+      <li><a href="#" onclick="return nav('s4ad')">Software for Artists Day</a></li>
+      <li><a href="#" onclick="return nav('osd-talk')">Talk: OSD Conventions</a></li>
+      <li><a href="#" onclick="return nav('cgchip')">Character‑Generator Chips</a> <span class="badge">☐</span></li>
+      <li><a href="#" onclick="return nav('83filenames')">8.3 Filename Convention</a> <span class="badge">☐</span></li>
+      <li><a href="#" onclick="return nav('pioneerworks')">Pioneer Works</a> <span class="badge">☐</span></li>
+    </ul>
+    <h3>⌨ SHORTCUTS</h3>
+    <ul class="shortcuts">
+      <li><b>▲ ▼</b>move within column</li>
+      <li><b>◀ ▶</b>switch nav / article</li>
+      <li><b>ENTER</b>open selection</li>
+      <li><b>⌫</b>back</li>
+      <li><b>ESC</b>home</li>
+      <li><b>/</b>jump to search</li>
+      <li><b>M</b>toggle this menu</li>
+    </ul>
+  </div>
+</div>
+
+<div class="searchbar">
+  <span>▸</span>
+  <input type="text" placeholder="search universe.sys ..." id="searchInput" onkeydown="if(event.key==='Enter')doSearch()">
+  <button onclick="doSearch()">FIND</button>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <h3>▣ NAVIGATE</h3>
+    <ul id="navList">
+      <li><a href="#" data-page="home" onclick="nav('home')">Home / Index</a></li>
+      <li><a href="#" data-page="vcr" onclick="nav('vcr')">VCR On‑Screen Displays</a></li>
+      <li><a href="#" data-page="disk" onclick="nav('disk')">DOS Disk Recovery Tools</a></li>
+      <li><a href="#" data-page="s4ad" onclick="nav('s4ad')">Software for Artists Day</a></li>
+      <li><a href="#" data-page="osd-talk" onclick="nav('osd-talk')">Talk: OSD Conventions</a></li>
+    </ul>
+
+    <h3>☆ SYMBOL KEY</h3>
+    <span class="legend-item"><span class="legend-sym">▸</span>link to another page</span>
+    <span class="legend-item"><span class="legend-sym">★</span>featured article</span>
+    <span class="legend-item"><span class="legend-sym">☐</span>stub / incomplete</span>
+    <span class="legend-item"><span class="legend-sym">⚠</span>preservation notice</span>
+    <span class="legend-item"><span class="legend-sym">▦</span>spec / data table</span>
+    <span class="legend-item"><span class="legend-sym">◆</span>see also</span>
+    <span class="legend-item"><span class="legend-sym">⏱</span>revision log entry</span>
+  </div>
+
+  <div class="content">
+
+    <!-- ============ HOME ============ -->
+    <div class="page active" id="page-home">
+      <h1 class="title">I N T E R L A C E . S Y S</h1>
+      <div class="subtitle">a wiki of distant worlds and strange characters</div>
+      <div class="lede">
+        UNIVERSE.SYS documents the vast universe of the multimedia franchise *insert name here*.
+      </div>
+
+      <div class="divider">****************************************************************</div>
+      <h2 class="h"><span class="mark">▣</span>BROWSE BY CATEGORY</h2>
+      <div class="indexgrid">
+        <div class="indexcard">
+          <h3>▣ Planets & Worlds</h3>
+          <ul>
+            <li><a href="#" onclick="nav('vcr')">▸ VCR On‑Screen Displays</a> <span class="badge">★ FEATURED</span></li>
+            <li><a href="#" onclick="nav('osd-talk')">▸ Talk: OSD Conventions</a></li>
+          </ul>
+        </div>
+        <div class="indexcard">
+          <h3>▣ Creatures & Cultures</h3>
+          <ul>
+            <li><a href="#" onclick="nav('disk')">▸ DOS Disk Recovery Tools</a></li>
+          </ul>
+        </div>
+        <div class="indexcard">
+          <h3>▣ Timeline</h3>
+          <ul>
+            <li><a href="#" onclick="nav('s4ad')">▸ Software for Artists Day</a></li>
+          </ul>
+        </div>
+        <div class="indexcard">
+          <h3>▣ Media <span class="badge">☐ STUB</span></h3>
+          <ul>
+            <li>BBS Login Screens</li>
+            <li>Early Webcam Software</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">⏱</span>RECENTLY TOUCHED</h2>
+      <ul class="seealso">
+        <li><span class="mark">⏱</span><a href="#" onclick="nav('vcr')">VCR On‑Screen Displays</a> — menu hierarchy diagram added</li>
+        <li><span class="mark">⏱</span><a href="#" onclick="nav('disk')">DOS Disk Recovery Tools</a> — drive table corrected</li>
+        <li><span class="mark">⏱</span><a href="#" onclick="nav('s4ad')">Software for Artists Day</a> — speaker list expanded</li>
+      </ul>
+    </div>
+
+    <!-- ============ VCR OSD ============ -->
+    <div class="page" id="page-vcr">
+      <h1 class="title">VCR ON‑SCREEN DISPLAYS</h1>
+      <div class="subtitle">consumer electronics ▸ menu systems <span class="badge">★ FEATURED</span></div>
+
+      <div class="meta-block">
+        <div><span class="k">CATEGORY</span>Consumer Electronics</div>
+        <div><span class="k">ERA</span>c. 1985 – 2005</div>
+        <div><span class="k">INPUT METHOD</span>Arrow keys + ACTION button</div>
+      </div>
+
+      <p>The VCR on‑screen display (OSD) was, for many households, the first
+      "computer interface" anyone navigated without a manual. Built on cheap
+      <a href="#" onclick="return nav('cgchip')">character‑generator chips</a>,
+      it could only draw fixed‑width blocky text over blue or black, which is
+      exactly why the convention below outlived the hardware it was designed
+      for.</p>
+
+      <div class="divider">----------------------------------------------------------------</div>
+      <h2 class="h"><span class="mark">▦</span>STANDARD MENU TREE</h2>
+      <table class="spec">
+        <caption>▦ Typical top‑level OSD menu, late‑1990s VHS deck</caption>
+        <tr><th>Entry</th><th>Function</th></tr>
+        <tr><td>SET UP VCR</td><td>Tracking, audio, tape speed defaults</td></tr>
+        <tr><td>SET UP FEATURE</td><td>Closed captioning, child lock</td></tr>
+        <tr><td>SET CLOCK</td><td>Manual or auto time sync via broadcast signal</td></tr>
+        <tr><td>SET UP CHANNEL</td><td>Tuner scan and channel labeling</td></tr>
+        <tr><td>LANGUAGE</td><td>On‑screen text language selector</td></tr>
+      </table>
+
+      <div class="notice"><span class="mark">⚠</span>PRESERVATION NOTICE — the character ROMs used to render these
+      menus are not dumped for most consumer decks. When a unit fails, the exact
+      glyph set it displayed is often unrecoverable.</div>
+
+      <h2 class="h"><span class="mark">▣</span>NAVIGATION GRAMMAR</h2>
+      <p>Every OSD of this generation used the same three‑verb grammar, printed
+      directly into the menu itself: <em>SELECT</em> moves a highlighted row,
+      <em>SET</em> commits a value, and <em>END</em> exits the layer. This is
+      arguably the most widely seen interface instruction set of the 20th
+      century, despite no one calling it that at the time.</p>
+
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">◆</span>SEE ALSO</h2>
+      <ul class="seealso">
+        <li><span class="mark">◆</span><a href="#" onclick="nav('osd-talk')">Talk: OSD Conventions</a> — discussion of SELECT/SET/END across brands</li>
+        <li><span class="mark">◆</span><a href="#" onclick="nav('disk')">DOS Disk Recovery Tools</a> — another blue‑on‑white character interface from the same period</li>
+      </ul>
+
+      <ul class="contrib">
+        <li>edited by user:tracking_error</li>
+        <li>user:blue_screen_archivist</li>
+        <li>user:vhs_completionist</li>
+      </ul>
+    </div>
+
+    <!-- ============ DISK RECOVERY ============ -->
+    <div class="page" id="page-disk">
+      <h1 class="title">DOS DISK RECOVERY TOOLS</h1>
+      <div class="subtitle">DOS utilities ▸ data recovery</div>
+
+      <div class="meta-block">
+        <div><span class="k">CATEGORY</span>DOS Utilities</div>
+        <div><span class="k">ERA</span>c. 1995 – 2005</div>
+        <div><span class="k">EXAMPLE TOOL</span>Active@ NTFS Reader for DOS</div>
+      </div>
+
+      <p>Disk recovery utilities running outside an OS could read a drive's raw
+      structure without the filesystem driver getting in the way — useful when
+      that driver is exactly what's broken. The interface convention that
+      emerged split the screen into a navigable drive tree on the left and a
+      directory listing on the right.</p>
+
+      <div class="divider">****************************************************************</div>
+      <h2 class="h"><span class="mark">▦</span>DUAL‑PANE LAYOUT, ANNOTATED</h2>
+      <table class="spec">
+        <caption>▦ Column meaning in a typical logical‑drive listing</caption>
+        <tr><th>Column</th><th>Shows</th></tr>
+        <tr><td>Name</td><td>8.3 filename, truncated with numeric suffix</td></tr>
+        <tr><td>Size</td><td>Bytes on disk; folders shown as &lt;&lt;FOLDER&gt;&gt;</td></tr>
+        <tr><td>Attrib</td><td>Archive / System / Hidden / Read‑only flags</td></tr>
+        <tr><td>Date / Time</td><td>Last‑modified stamp from the FAT/NTFS entry</td></tr>
+      </table>
+
+      <div class="notice"><span class="mark">⚠</span>PRESERVATION NOTICE — many of these utilities shipped as a
+      single bootable floppy image. Without the boot sector intact, the tool
+      itself becomes exactly the kind of file it was built to recover.</div>
+
+      <h2 class="h"><span class="mark">▣</span>WHY BLUE‑ON‑WHITE‑ON‑BLUE</h2>
+      <p>The inverted highlight bar — white text on a blue field marking the
+      selected row — comes directly from the IBM PC's text‑mode color palette,
+      where blue was attribute value 1: the cheapest non‑black color available
+      to a DOS program with no graphics driver loaded. It's also why every name
+      in the listing above still respects the
+      <a href="#" onclick="return nav('83filenames')">8.3 filename convention</a>,
+      long after the OS itself stopped requiring it.</p>
+
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">◆</span>SEE ALSO</h2>
+      <ul class="seealso">
+        <li><span class="mark">◆</span><a href="#" onclick="nav('vcr')">VCR On‑Screen Displays</a> — same palette constraint, different hardware</li>
+      </ul>
+
+      <ul class="contrib">
+        <li>edited by user:sector_zero</li>
+        <li>user:fat32_forever</li>
+      </ul>
+    </div>
+
+    <!-- ============ S4AD ============ -->
+    <div class="page" id="page-s4ad">
+      <h1 class="title">SOFTWARE FOR ARTISTS DAY</h1>
+      <div class="subtitle">net culture &amp; events ▸ one‑off gatherings</div>
+
+      <div class="meta-block">
+        <div><span class="k">CATEGORY</span>Net Culture &amp; Events</div>
+        <div><span class="k">FIRST HELD</span>2014</div>
+        <div><span class="k">VENUE</span><a href="#" onclick="return nav('pioneerworks')">Pioneer Works</a>, Brooklyn</div>
+      </div>
+
+      <p>Software for Artists Day (S4AD) is a one‑day event built on a simple
+      reversal: technologists are asked to identify as artists, and artists as
+      technologists. Talks, breakout sessions, and informal demos run in
+      parallel tracks through the day.</p>
+
+      <div class="divider">----------------------------------------------------------------</div>
+      <h2 class="h"><span class="mark">▦</span>TYPICAL SCHEDULE</h2>
+      <table class="spec">
+        <tr><th>Time</th><th>Block</th></tr>
+        <tr><td>10–11 AM</td><td>Breakfast / opening remarks</td></tr>
+        <tr><td>11 AM–1 PM</td><td>Sessions 1 &amp; 2</td></tr>
+        <tr><td>1–3 PM</td><td>Lunch</td></tr>
+        <tr><td>3–5 PM</td><td>Sessions 3 &amp; 4</td></tr>
+        <tr><td>5–7 PM</td><td>Happy hour</td></tr>
+      </table>
+
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">▣</span>NOTABLE SPEAKERS (S4AD #3)</h2>
+      <ul class="contrib">
+        <li>Zach Lieberman</li><li>Molmol Kuo</li><li>Nora Khan</li>
+        <li>Laura Chen</li><li>Sam Lavigne</li><li>Mattie Brice</li>
+        <li>Emilie Baltz</li><li>David Huerta</li>
+      </ul>
+
+      <div class="stub"><span class="mark">☐</span>This section is a stub. You can help ARCHIVE.SYS by expanding it
+      with coverage of later S4AD editions.</div>
+    </div>
+
+    <!-- ============ TALK PAGE ============ -->
+    <div class="page" id="page-osd-talk">
+      <h1 class="title">TALK: OSD CONVENTIONS</h1>
+      <div class="subtitle">discussion ▸ <a href="#" onclick="nav('vcr')">VCR On‑Screen Displays</a></div>
+
+      <p>Discussion page for the SELECT / SET / END navigation grammar described
+      on the main article. Logged below in drive‑table format, oldest first.</p>
+
+      <div class="divider">****************************************************************</div>
+      <h2 class="h"><span class="mark">⏱</span>REVISION LOG</h2>
+      <div class="revlog">
+        <div class="row"><span></span><span>Date</span><span>Change</span><span>User</span></div>
+        <div class="row"><span>⏱</span><span>2019‑04‑02</span><span>Initial grammar note, three verbs</span><span>tracking_error</span></div>
+        <div class="row"><span>⏱</span><span>2021‑11‑17</span><span>Added cross‑brand comparison</span><span>blue_screen_archivist</span></div>
+        <div class="row"><span>⏱</span><span>2023‑06‑09</span><span>Linked to disk‑recovery palette note</span><span>fat32_forever</span></div>
+      </div>
+
+      <div class="notice"><span class="mark">⚠</span>Open question: did any deck use a fourth verb beyond
+      SELECT / SET / END? No confirmed example found yet — flagged for
+      follow‑up rather than removed.</div>
+    </div>
+
+    <!-- ============ SEARCH RESULTS ============ -->
+    <div class="page" id="page-search">
+      <h1 class="title">SEARCH</h1>
+      <div class="subtitle">query: <span id="searchQueryLabel">—</span></div>
+      <p>Results are matched against article titles and summaries across
+      ARCHIVE.SYS.</p>
+      <div class="divider">----------------------------------------------------------------</div>
+      <h2 class="h"><span class="mark">▣</span>RESULTS</h2>
+      <ul class="seealso" id="searchResultsList"></ul>
+    </div>
+
+    <!-- ============ STUB: CHARACTER-GENERATOR CHIPS ============ -->
+    <div class="page" id="page-cgchip">
+      <h1 class="title">CHARACTER‑GENERATOR CHIPS</h1>
+      <div class="subtitle">hardware ▸ display <span class="badge">☐ STUB</span></div>
+      <p>A character‑generator (CG) chip stores a fixed glyph set in ROM and
+      overlays it onto a video signal, one blocky character cell at a time. It
+      has no concept of arbitrary graphics — only the alphabet, digits, and a
+      handful of symbols it was etched with at the factory — which is why
+      every OSD built on one looks the same chunky way regardless of brand.</p>
+      <div class="stub"><span class="mark">☐</span>This article is a stub. You can help by expanding it with
+      specific chip part numbers and manufacturers.</div>
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">◆</span>SEE ALSO</h2>
+      <ul class="seealso">
+        <li><span class="mark">◆</span><a href="#" onclick="return nav('vcr')">VCR On‑Screen Displays</a> — where this hardware shows up</li>
+      </ul>
+    </div>
+
+    <!-- ============ STUB: 8.3 FILENAME CONVENTION ============ -->
+    <div class="page" id="page-83filenames">
+      <h1 class="title">8.3 FILENAME CONVENTION</h1>
+      <div class="subtitle">DOS utilities ▸ filesystems <span class="badge">☐ STUB</span></div>
+      <p>The 8.3 convention limits a filename to eight characters plus a
+      three‑character extension, separated by a dot — a hard limit baked into
+      early FAT filesystems. Long filenames introduced later are stored
+      alongside an auto‑generated 8.3 alias, which is the truncated,
+      numbered name that legacy tools like disk‑recovery utilities still
+      display.</p>
+      <div class="stub"><span class="mark">☐</span>This article is a stub. You can help by expanding it with the
+      exact truncation algorithm.</div>
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">◆</span>SEE ALSO</h2>
+      <ul class="seealso">
+        <li><span class="mark">◆</span><a href="#" onclick="return nav('disk')">DOS Disk Recovery Tools</a> — where these truncated names appear</li>
+      </ul>
+    </div>
+
+    <!-- ============ STUB: PIONEER WORKS ============ -->
+    <div class="page" id="page-pioneerworks">
+      <h1 class="title">PIONEER WORKS</h1>
+      <div class="subtitle">net culture &amp; events ▸ venue <span class="badge">☐ STUB</span></div>
+      <p>Pioneer Works is a nonprofit cultural center in Red Hook, Brooklyn,
+      occupying a former ironworks building. Alongside artist residencies and
+      exhibitions, it hosts one‑off gatherings such as Software for Artists
+      Day in its main hall.</p>
+      <div class="stub"><span class="mark">☐</span>This article is a stub. You can help by expanding it with the
+      venue's residency program and exhibition history.</div>
+      <div class="divider">////////////////////////////////////////////////////////////////</div>
+      <h2 class="h"><span class="mark">◆</span>SEE ALSO</h2>
+      <ul class="seealso">
+        <li><span class="mark">◆</span><a href="#" onclick="return nav('s4ad')">Software for Artists Day</a> — event held at this venue</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  UNIVERSE.SYS — last full sync 2026‑06‑22 — all entries loaded, no errors found
+</footer>
+
+<div class="kbdbar" role="note" aria-label="keyboard controls">
+  <span><b>SELECT</b>▲ ▼ KEY</span>
+  <span><b>SWITCH</b>◀ ▶ KEY</span>
+  <span><b>SET</b>ENTER KEY</span>
+  <span><b>BACK</b>⌫ BACKSPACE</span>
+  <span><b>HOME</b>ESC KEY</span>
+  <span><b>SEARCH</b>/ KEY</span>
+  <span><b>MENU</b>M KEY</span>
+</div>
+</body>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

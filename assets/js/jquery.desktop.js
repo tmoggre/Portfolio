@@ -1,5 +1,3 @@
-// jquery.desktop.js
-
 var JQD = (function($, window, document, undefined) {
   return {
     go: function() {
@@ -170,15 +168,50 @@ var JQD = (function($, window, document, undefined) {
         });
 
         d.on('mouseenter', 'div.window', function() {
+          var lockWidth = $(this).hasClass('resize_y');
+          var fixedWidth = $(this).width();
+          // Only use a pixel max-height (a % value like "100%" would parse as 100px)
+          var cssMaxHeight = $(this).css('max-height');
+          var maxHeight = /px$/.test(cssMaxHeight) ? parseInt(cssMaxHeight, 10) : null;
+
           $(this).off('mouseenter').draggable({
             cancel: 'a',
             containment: 'parent',
-            handle: 'div.window_top'
+            handle: 'div.window_top',
+            start: function() {
+              JQD.util.shield_show('move');
+            },
+            stop: function() {
+              JQD.util.shield_hide();
+            }
           }).resizable({
             containment: 'parent',
-            minWidth: 400,
-            minHeight: 200
+            minWidth: lockWidth ? fixedWidth : 400,
+            maxWidth: lockWidth ? fixedWidth : null,
+            minHeight: 200,
+            maxHeight: maxHeight,
+            start: function() {
+              JQD.util.shield_show(lockWidth ? 'ns-resize' : 'se-resize');
+            },
+            stop: function() {
+              JQD.util.shield_hide();
+            }
           });
+        });
+
+        d.on('mousedown', 'div.window_top, div.window .ui-resizable-handle', function(ev) {
+          if (ev.which !== 1 || $(ev.target).closest('a').length) {
+            return;
+          }
+          JQD.util.shield_arm();
+        });
+
+        d.on('mouseup', function() {
+          JQD.util.shield_hide();
+        });
+
+        $(window).on('blur', function() {
+          JQD.util.shield_hide();
         });
 
         d.on('dblclick', 'div.window_top', function() {
@@ -227,6 +260,7 @@ var JQD = (function($, window, document, undefined) {
         $desktop.on('mousedown', function(e) {
           if ($(e.target).closest('.icon, .window').length === 0) {
             JQD.util.clear_active();
+            JQD.util.shield_arm();
             isDragging = true;
             startX = e.pageX;
             startY = e.pageY;
@@ -278,6 +312,7 @@ var JQD = (function($, window, document, undefined) {
           if (isDragging) {
             isDragging = false;
             $selectionBox.hide();
+            JQD.util.shield_hide();
           }
         });
 
@@ -295,6 +330,8 @@ var JQD = (function($, window, document, undefined) {
           $selectedIcons.draggable({
             containment: 'parent',
             start: function(event, ui) {
+              $selectedIcons.addClass('dragging');
+
               const startPosition = ui.position;
               $selectedIcons.each(function() {
                 const $icon = $(this);
@@ -313,12 +350,24 @@ var JQD = (function($, window, document, undefined) {
                 $icon.css({
                   left: startPosition.left + offset.left,
                   top: startPosition.top + offset.top,
-                }).addClass('selected'); // Ensure icons stay visibly selected
+                }).addClass('selected');
               });
             },
             stop: function() {
+              $selectedIcons.removeClass('dragging');       
               $selectedIcons.draggable('destroy');
             },
+          });
+        });
+      },
+      alterego: function() {
+        // Click a thumbnail -> show its character (data-character) on the stage
+        $(document).on('click', '.alterego_option', function() {
+          $('.alterego_option').removeClass('chosen').attr('aria-pressed', 'false');
+          $(this).addClass('chosen').attr('aria-pressed', 'true');
+          $('#alterego_character').attr({
+            src: $(this).data('character'),
+            alt: $(this).find('img').attr('alt')
           });
         });
       },
@@ -329,6 +378,31 @@ var JQD = (function($, window, document, undefined) {
       }
     },
     util: {
+      shield_arm: function() {
+        document.documentElement.className += ' window_interacting';
+      },
+      shield_show: function(cursor) {
+        JQD.util.shield_arm();
+        var shield = document.getElementById('drag-shield');
+
+        if (!shield) {
+          shield = document.createElement('div');
+          shield.id = 'drag-shield';
+          document.body.appendChild(shield);
+        }
+
+        shield.style.cursor = cursor || 'default';
+      },
+      shield_hide: function() {
+        var shield = document.getElementById('drag-shield');
+        var root = document.documentElement;
+
+        root.className = root.className.replace(/(^|\s)window_interacting(?=\s|$)/g, '').replace(/^\s+|\s+$/g, '');
+
+        if (shield) {
+          shield.parentNode.removeChild(shield);
+        }
+      },
       clear_active: function() {
         $('a.active, tr.active').removeClass('active');
         $('ul.menu').hide();
@@ -340,8 +414,8 @@ var JQD = (function($, window, document, undefined) {
       window_resize: function(el) {
         var win = $(el).closest('div.window');
 
-        if (win.hasClass('window_full')) {
-          win.removeClass('window_full').css({
+        if (win.hasClass('window_full') || win.hasClass('window_tall')) {
+          win.removeClass('window_full window_tall').css({
             'top': win.attr('data-t'),
             'left': win.attr('data-l'),
             'right': win.attr('data-r'),
@@ -357,14 +431,24 @@ var JQD = (function($, window, document, undefined) {
             'data-b': win.css('bottom'),
             'data-w': win.css('width'),
             'data-h': win.css('height')
-          }).addClass('window_full').css({
-            'top': '0',
-            'left': '0',
-            'right': '0',
-            'bottom': '0',
-            'width': '100%',
-            'height': '100%'
           });
+
+          if (win.hasClass('resize_y')) {
+            win.addClass('window_tall').css({
+              'top': '0',
+              'bottom': '0',
+              'height': '100%'
+            });
+          } else {
+            win.addClass('window_full').css({
+              'top': '0',
+              'left': '0',
+              'right': '0',
+              'bottom': '0',
+              'width': '100%',
+              'height': '100%'
+            });
+          }
         }
 
         JQD.util.window_flat();
